@@ -7,16 +7,15 @@
 <style>
   :root{
     --ink:#0d0f13;
-    --accent1:#163c5a; /* dark blue */
-    --accent2:#8b1a1a; /* deep red */
-    --accent3:#d17f1d; /* autumn orange */
-    --accent4:#a44f23; /* brown/orange */
+    --accent1:#163c5a;
+    --accent2:#8b1a1a;
+    --accent3:#d17f1d;
+    --accent4:#a44f23;
     --glass: rgba(255,255,255,0.06);
     --glass-2: rgba(255,255,255,0.10);
     --border: rgba(255,255,255,0.18);
   }
 
-  /* Base background + animated blobs (GPU-friendly transforms only) */
   body{
     margin:0;
     font-family: system-ui, Arial, sans-serif;
@@ -26,21 +25,17 @@
     display:flex; align-items:center; justify-content:center;
     padding:32px; position:relative; overflow:hidden;
   }
-  /* Blob layers */
   body::before, body::after{
     content:""; position:absolute; inset:-20%;
     background: radial-gradient(40% 40% at 30% 30%, var(--accent1), transparent 60%),
                 radial-gradient(35% 35% at 80% 20%, var(--accent2), transparent 60%),
                 radial-gradient(45% 45% at 60% 80%, var(--accent3), transparent 65%);
     filter: blur(40px) saturate(110%);
-    opacity:.45; transform: translate3d(0,0,0) scale(1);
-    will-change: transform;
-    animation: floatA 26s ease-in-out infinite alternate;
+    opacity:.45; animation: floatA 26s ease-in-out infinite alternate;
   }
   body::after{
     mix-blend-mode: screen;
-    opacity:.28;
-    animation: floatB 34s ease-in-out infinite alternate-reverse;
+    opacity:.28; animation: floatB 34s ease-in-out infinite alternate-reverse;
   }
   @keyframes floatA{
     0%   { transform: translate3d(-2%, -2%, 0) scale(1.05); }
@@ -52,10 +47,6 @@
     50%  { transform: translate3d(-3%, -1%, 0) scale(1.06); }
     100% { transform: translate3d(1%, -2%, 0)  scale(1.00); }
   }
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    body::before, body::after{ animation: none; }
-  }
 
   .wrap{ width:min(800px, 100%); position:relative; z-index:1; }
   .card{
@@ -66,9 +57,10 @@
     border-radius: 20px;
     padding: 26px;
     box-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.05);
+    text-align:center;
   }
 
-  .logo{ max-width:90px; margin-bottom:10px; }
+  .logo{ max-width:120px; margin-bottom:12px; }
   .logo-word{
     font-weight:800;
     font-size: clamp(28px, 5vw, 42px);
@@ -114,19 +106,12 @@
 </head>
 <body>
   <main class="wrap">
-    <section class="card" style="text-align:center;">
-      <!-- Inline SVG cat logo -->
-      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Little Beast logo" role="img">
-        <circle cx="32" cy="32" r="30" stroke="var(--accent3)" stroke-width="4" fill="var(--accent1)" />
-        <path d="M20 24 C20 18, 28 18, 28 24 S20 30, 20 24 Z" fill="var(--accent2)" />
-        <path d="M44 24 C44 18, 36 18, 36 24 S44 30, 44 24 Z" fill="var(--accent2)" />
-        <circle cx="26" cy="30" r="3" fill="white"/>
-        <circle cx="38" cy="30" r="3" fill="white"/>
-        <path d="M26 38 Q32 44 38 38" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
+    <section class="card">
+      <!-- Replace logo.png with your actual logo file in the repo -->
+      <img src="logo.png" alt="Little Beast Logo" class="logo">
 
       <h1 class="logo-word">Little Beast</h1>
-      <p class="tag">Heavy-hearted Britpop. Pick your platform:</p>
+      <p class="tag">Alt Rock from Zagreb</p>
 
       <div class="links">
         <a class="btn spotify" target="_blank" rel="noopener"
