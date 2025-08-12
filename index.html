@@ -1,112 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Little Beast — Official</title>
-  <meta name="description" content="Little Beast — heavy-hearted Britpop. New music out now.">
-  <meta property="og:title" content="Little Beast — Official">
-  <meta property="og:description" content="Heavy-hearted Britpop. New music out now.">
-  <meta property="og:type" content="website">
-  <meta property="twitter:card" content="summary">
-  <style>
-    :root{ --bg:#0b0f14; --fg:#e8ecf1; --muted:#a9b4c0; --accent:#e8b923; }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--fg);
-      background:
-        radial-gradient(1200px 800px at 10% 10%, #14202c 0%, transparent 60%),
-        radial-gradient(1000px 700px at 90% 90%, #1f2c3a 0%, transparent 60%),
-        linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%);
-      display:flex; align-items:center; justify-content:center; padding:24px;
-    }
-    .card{
-      width:min(880px,100%); border-radius:24px;
-      background:rgba(255,255,255,0.04); backdrop-filter:blur(10px);
-      box-shadow:0 30px 80px rgba(0,0,0,0.5);
-      padding:clamp(20px,4vw,40px); border:1px solid rgba(255,255,255,0.08);
-    }
-    .brand{display:flex; align-items:center; gap:14px; margin-bottom:10px;}
-    .dot{width:14px; height:14px; border-radius:50%; background:var(--accent); box-shadow:0 0 18px var(--accent);}
-    h1{font-size:clamp(28px,5vw,46px); margin:0 0 8px; letter-spacing:.4px}
-    p.lede{color:var(--muted); margin:0 0 24px; font-size:clamp(14px,2.5vw,18px); line-height:1.5}
-    .cta-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:22px;}
-    a.btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      text-decoration:none; padding:14px 16px; border-radius:14px;
-      border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03);
-      color:var(--fg); font-weight:600; transition:transform .14s, background .14s, border-color .14s;
-      user-select:none;
-    }
-    a.btn:hover{transform:translateY(-2px); background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.22)}
-    footer{margin-top:26px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:12px}
-    .badge{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08)}
-  </style>
-
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1066942378877644');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" alt=""
-    src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
-  <!-- /Meta Pixel -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Beast - Official Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #1DB954; /* Spotify green */
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #FFD700; /* Gold hover effect */
+        }
+    </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <div class="brand"><span class="dot" aria-hidden="true"></span><span class="badge">Little Beast</span></div>
-    <h1>Heavy-hearted Britpop, turned up.</h1>
-    <p class="lede">New music dropping regularly. Follow and stream everywhere.</p>
-
-    <div class="cta-grid">
-      <a class="btn" data-event="Spotify" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?si=LwmbDfrTTkqDLSMChR0eyw&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" rel="noopener" target="_blank" aria-label="Listen on Spotify">🎧 Listen on Spotify</a>
-      <a class="btn" data-event="YouTube" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" rel="noopener" target="_blank" aria-label="Watch on YouTube">▶️ Watch on YouTube</a>
-      <a class="btn" data-event="Instagram" href="https://instagram.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" rel="noopener" target="_blank" aria-label="Follow on Instagram">📷 Instagram</a>
-      <a class="btn" data-event="SoundCloud" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" rel="noopener" target="_blank" aria-label="Listen on SoundCloud">☁️ SoundCloud</a>
-      <a class="btn" data-event="AppleMusic" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" rel="noopener" target="_blank" aria-label="Listen on Apple Music">🍎 Apple Music</a>
-      <a class="btn" data-event="Linktree" href="https://linktr.ee/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Linktree" rel="noopener" target="_blank" aria-label="Visit Linktree">🌴 Linktree</a>
-      <a class="btn" data-event="MailingList" href="mailto:littlebeasthrk@hotmail.com?subject=Add%20me%20to%20the%20mailing%20list" aria-label="Join Mailing List">✉️ Join Mailing List</a>
-    </div>
-
-    <footer>
-      <span>© <span id="year"></span> Little Beast</span>
-      <span class="badge">Zagreb, Croatia</span>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Add UTM tags to outbound links
-    function withUTM(url, content){
-      try {
-        var u = new URL(url);
-        u.searchParams.set('utm_source','lb_hub');
-        u.searchParams.set('utm_medium','bio');
-        u.searchParams.set('utm_campaign','2025_q3');
-        if(content) u.searchParams.set('utm_content', content);
-        return u.toString();
-      } catch(e) { return url; }
-    }
-
-    // Guarantee the click logs before opening
-    document.querySelectorAll('a.btn[target="_blank"], a.btn[href^="http"]').forEach(a => {
-      a.addEventListener('click', function(e){
-        var label = a.dataset.event || a.textContent.trim();
-        var href = withUTM(a.getAttribute('href'), label);
-        if (href.startsWith('mailto:')) return; // don't block mailto
-        e.preventDefault();
-        try { fbq('track', 'ViewContent', {content_name: label, content_category: 'Outbound'}); } catch (err) {}
-        setTimeout(function(){ window.open(href, '_blank', 'noopener'); }, 180);
-      });
-    });
-  </script>
+    <h1>Little Beast - Official Links</h1>
+    <ul>
+        <li><a href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank">Spotify</a></li>
+        <li><a href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank">YouTube</a></li>
+        <li><a href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank">TikTok</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank">Facebook</a></li>
+        <li><a href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank">SoundCloud</a></li>
+        <li><a href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank">Apple Music</a></li>
+    </ul>
 </body>
 </html>
