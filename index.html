@@ -27,18 +27,21 @@
 
   <style>
     :root{
-      --bg:#0b0b0e;
-      --card:#14141a;
-      --ink:#f2f2f5;
-      --muted:#b9bbc6;
-      --ring:rgba(255,255,255,.1);
+      --bg1: #a8edea; /* light turquoise */
+      --bg2: #fed6e3; /* warm pale peach/pink */
+      --card: #fff8f0; /* sand */
+      --ink:#333333; /* deep charcoal */
+      --muted:#666666;
+      --accent:#ff6f61; /* coral */
+      --accent-hover:#ff9966; /* tangerine */
+      --ring:rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      background: radial-gradient(1200px 800px at 50% -10%, #1b1b23 0%, var(--bg) 55%);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
       color:var(--ink);
       display:flex; align-items:center; justify-content:center;
     }
@@ -46,11 +49,11 @@
       width:100%; max-width:760px; padding:28px 18px;
     }
     .card{
-      background:linear-gradient(180deg, var(--card), #101017 60%, #0c0c12);
+      background:var(--card);
       border:1px solid var(--ring);
       border-radius:24px;
       padding:28px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+      box-shadow: 0 8px 24px rgba(0,0,0,.1);
     }
     .header{
       display:flex; flex-direction:column; align-items:center; gap:10px;
@@ -58,8 +61,8 @@
     }
     .logo{
       width:140px; height:140px; object-fit:contain; display:block;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
       border-radius:16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
     }
     h1{
       font-weight:800; letter-spacing:.4px; margin:0; font-size:clamp(22px, 3vw, 28px);
@@ -72,15 +75,20 @@
       .links{ grid-template-columns: 1fr 1fr; }
     }
     .btn{
-      display:flex; align-items:center; gap:12px;
+      display:flex; align-items:center; justify-content:center;
       padding:14px 16px; border-radius:14px; text-decoration:none;
-      color:var(--ink); background:#0f0f15; border:1px solid var(--ring);
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      color:var(--ink); background:#ffffff;
+      border:1px solid var(--ring);
+      transition: transform .08s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      font-weight:600;
     }
-    .btn:hover{ transform: translateY(-1px); background:#151521; border-color:#232334; }
+    .btn:hover{ 
+      transform: translateY(-1px); 
+      background: var(--accent); 
+      color:#fff; 
+      border-color: var(--accent-hover);
+    }
     .btn:active{ transform: translateY(0); }
-    .btn svg{ width:22px; height:22px; flex:0 0 22px }
-    .btn .sub{ color:var(--muted); font-size:12px; display:block; margin-top:2px }
     footer{
       text-align:center; color:var(--muted); font-size:12px; margin-top:16px;
     }
@@ -97,28 +105,28 @@
 
       <div class="links">
         <a class="btn" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?si=LwmbDfrTTkqDLSMChR0eyw&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">
-          <strong>Spotify</strong>
+          Spotify
         </a>
         <a class="btn" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank" rel="noopener">
-          <strong>YouTube</strong>
+          YouTube
         </a>
         <a class="btn" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">
-          <strong>Instagram</strong>
+          Instagram
         </a>
         <a class="btn" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">
-          <strong>SoundCloud</strong>
+          SoundCloud
         </a>
         <a class="btn" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">
-          <strong>Apple Music</strong>
+          Apple Music
         </a>
         <a class="btn" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">
-          <strong>Facebook</strong>
+          Facebook
         </a>
         <a class="btn" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">
-          <strong>TikTok</strong>
+          TikTok
         </a>
         <a class="btn" href="mailto:littlebeasthrk@hotmail.com?subject=Mailing%20List%20Sign%20Up&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Email" target="_blank" rel="noopener">
-          <strong>Join Mailing List</strong>
+          Join Mailing List
         </a>
       </div>
     </section>
