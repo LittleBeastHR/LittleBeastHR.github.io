@@ -2,81 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Little Beast — Official Links</title>
-  <meta name="description" content="Little Beast — heavy-hearted Britpop. Follow and listen on your favorite platforms.">
+  <meta name="description" content="Little Beast — Alt Rock from Zagreb. Stream, follow, and sign up." />
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0;
-    t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '762201612914008');
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=762201612914008&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=762201612914008&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- /Meta Pixel -->
+  <!-- End Meta Pixel Code -->
 
   <style>
-    :root { --bg:#0b0c10; --card:#111319; --text:#e8eaed; --muted:#aab0b6; }
-    * { box-sizing: border-box; }
-    html,body { margin:0; background:var(--bg); color:var(--text); font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-    .wrap { max-width:720px; margin:48px auto; padding:0 16px; }
-    .card {
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:20px; padding:28px; box-shadow:0 10px 30px rgba(0,0,0,.35);
+    :root{
+      --bg:#0b0b0e;
+      --card:#14141a;
+      --ink:#f2f2f5;
+      --muted:#b9bbc6;
+      --ring:rgba(255,255,255,.1);
     }
-    .header {
-      display:flex; flex-direction:column; align-items:center; gap:16px; margin-bottom:12px; text-align:center;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 50% -10%, #1b1b23 0%, var(--bg) 55%);
+      color:var(--ink);
+      display:flex; align-items:center; justify-content:center;
     }
-    .logo { width:84px; height:84px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.12); background:#0e0f14; }
-    h1 { margin:0; font-size:1.6rem; letter-spacing:.2px; }
-    .sub { color:var(--muted); font-size:.95rem; margin-top:4px; }
-    .grid { display:grid; grid-template-columns:1fr; gap:12px; margin-top:18px; }
-    @media(min-width:520px){ .grid { grid-template-columns:1fr 1fr; } }
-    a.link {
-      display:flex; align-items:center; justify-content:center; text-decoration:none;
-      padding:14px 16px; border-radius:14px; background:var(--card);
-      border:1px solid rgba(255,255,255,.08); font-weight:600;
+    .wrap{
+      width:100%; max-width:760px; padding:28px 18px;
     }
-    a.link:hover { border-color: rgba(255,255,255,.18); }
-    .foot { margin-top:20px; color:var(--muted); font-size:.85rem; text-align:center; }
+    .card{
+      background:linear-gradient(180deg, var(--card), #101017 60%, #0c0c12);
+      border:1px solid var(--ring);
+      border-radius:24px;
+      padding:28px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    }
+    .header{
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      margin-bottom:16px; text-align:center;
+    }
+    .logo{
+      width:140px; height:140px; object-fit:contain; display:block;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+      border-radius:16px;
+    }
+    h1{
+      font-weight:800; letter-spacing:.4px; margin:0; font-size:clamp(22px, 3vw, 28px);
+    }
+    .tag{ color:var(--muted); font-size:14px; }
+    .links{
+      display:grid; gap:12px; margin-top:18px;
+    }
+    @media (min-width:640px){
+      .links{ grid-template-columns: 1fr 1fr; }
+    }
+    .btn{
+      display:flex; align-items:center; gap:12px;
+      padding:14px 16px; border-radius:14px; text-decoration:none;
+      color:var(--ink); background:#0f0f15; border:1px solid var(--ring);
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background:#151521; border-color:#232334; }
+    .btn:active{ transform: translateY(0); }
+    .btn svg{ width:22px; height:22px; flex:0 0 22px }
+    .btn .sub{ color:var(--muted); font-size:12px; display:block; margin-top:2px }
+    footer{
+      text-align:center; color:var(--muted); font-size:12px; margin-top:16px;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="header">
+  <main class="wrap">
+    <section class="card">
+      <header class="header">
         <img src="logo.png" alt="Little Beast logo" class="logo" />
-        <div>
-          <h1>Little Beast</h1>
-          <div class="sub">Official links</div>
-        </div>
-      </div>
+        <h1>Little Beast</h1>
+        <div class="tag">Alt Rock from Zagreb</div>
+      </header>
 
-      <div class="grid" id="links">
-        <a class="link" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?si=LwmbDfrTTkqDLSMChR0eyw&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">Spotify</a>
-        <a class="link" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank" rel="noopener">YouTube</a>
-        <a class="link" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">Instagram</a>
-        <a class="link" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">Facebook</a>
-        <a class="link" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">TikTok</a>
-        <a class="link" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">SoundCloud</a>
-        <a class="link" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Apple%20Music" target="_blank" rel="noopener">Apple Music</a>
-        <a class="link" href="mailto:littlebeasthrk@hotmail.com?subject=Sign%20me%20up%20for%20the%20mailing%20list" target="_blank" rel="noopener">Email us</a>
+      <div class="links">
+        <a class="btn" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?si=LwmbDfrTTkqDLSMChR0eyw&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">
+          <strong>Spotify</strong>
+        </a>
+        <a class="btn" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank" rel="noopener">
+          <strong>YouTube</strong>
+        </a>
+        <a class="btn" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">
+          <strong>Instagram</strong>
+        </a>
+        <a class="btn" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">
+          <strong>SoundCloud</strong>
+        </a>
+        <a class="btn" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">
+          <strong>Apple Music</strong>
+        </a>
+        <a class="btn" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">
+          <strong>Facebook</strong>
+        </a>
+        <a class="btn" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">
+          <strong>TikTok</strong>
+        </a>
+        <a class="btn" href="mailto:littlebeasthrk@hotmail.com?subject=Mailing%20List%20Sign%20Up&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Email" target="_blank" rel="noopener">
+          <strong>Join Mailing List</strong>
+        </a>
       </div>
+    </section>
 
-      <div class="foot">© <span id="year"></span> Little Beast</div>
-    </div>
-  </div>
+    <footer>© <span id="yr"></span> Little Beast. All rights reserved.</footer>
+  </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
