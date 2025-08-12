@@ -6,31 +6,25 @@
 <title>Little Beast — Official Links</title>
 <style>
   :root{
-    /* Brand palette (tweak these) */
-    --ink:#0e0f13;         /* background base */
-    --ink-2:#14151b;
-    --accent1:#1DB954;     /* Spotify green */
-    --accent2:#ff3951;     /* Link red/pink */
-    --accent3:#f6b400;     /* Gold */
-    --accent4:#00c2ff;     /* Cyan */
-    --accent5:#845EF7;     /* Purple */
-    --accent6:#ff6a00;     /* Orange */
-    --accent7:#ffffff;     /* White */
-    --glass: rgba(255,255,255,0.07);
-    --glass-2: rgba(255,255,255,0.10);
+    --ink:#0d0f13;
+    --accent1:#163c5a; /* dark blue */
+    --accent2:#8b1a1a; /* deep red */
+    --accent3:#d17f1d; /* autumn orange */
+    --accent4:#a44f23; /* brown/orange */
+    --glass: rgba(255,255,255,0.06);
+    --glass-2: rgba(255,255,255,0.1);
     --border: rgba(255,255,255,0.18);
   }
 
-  /* Background gradient with subtle animated noise */
   body{
     margin:0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family: system-ui, Arial, sans-serif;
     color:#fff;
     min-height:100vh;
     background:
-      radial-gradient(1200px 800px at 15% 10%, #1b1f2a 0%, transparent 60%),
-      radial-gradient(1100px 700px at 85% 20%, #1a2a2a 0%, transparent 60%),
-      radial-gradient(1400px 900px at 50% 100%, #231a2a 0%, transparent 60%),
+      radial-gradient(1200px 800px at 15% 10%, var(--accent1) 0%, transparent 60%),
+      radial-gradient(1100px 700px at 85% 20%, var(--accent2) 0%, transparent 60%),
+      radial-gradient(1400px 900px at 50% 100%, var(--accent3) 0%, transparent 60%),
       linear-gradient(135deg, #0a0b10 0%, #151728 100%);
     display:flex;
     align-items:center;
@@ -38,10 +32,7 @@
     padding:32px;
   }
 
-  .wrap{
-    width:min(800px, 100%);
-  }
-
+  .wrap{ width:min(800px, 100%); }
   .card{
     background: var(--glass);
     backdrop-filter: blur(12px);
@@ -52,18 +43,18 @@
     box-shadow: 0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.05);
   }
 
-  /* Header */
+  .logo{
+    max-width:90px;
+    margin-bottom:10px;
+  }
   .logo-word{
-    display:inline-block;
     font-weight:800;
-    letter-spacing:.6px;
     font-size: clamp(28px, 5vw, 42px);
-    line-height:1.05;
-    margin: 0 0 6px;
-    background: linear-gradient(90deg, var(--accent3), var(--accent4), var(--accent5));
+    background: linear-gradient(90deg, var(--accent3), var(--accent4), var(--accent2));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    margin: 0 0 6px;
   }
   .tag{
     opacity:.8;
@@ -71,15 +62,8 @@
     font-size: 14px;
   }
 
-  /* Links grid */
-  .links{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap:12px;
-  }
-  @media (min-width:600px){
-    .links{ grid-template-columns: 1fr 1fr; }
-  }
+  .links{ display:grid; grid-template-columns: 1fr; gap:12px; }
+  @media (min-width:600px){ .links{ grid-template-columns: 1fr 1fr; } }
 
   .btn{
     position:relative;
@@ -93,16 +77,24 @@
     font-weight:700;
     border:1px solid var(--border);
     background: var(--glass-2);
-    transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.04);
+    transition: transform .08s ease, background .2s ease, border-color .2s ease;
   }
   .btn:hover{ transform: translateY(-2px); }
-  .btn:active{ transform: translateY(0); }
+  .btn::after{
+    content:"";
+    position:absolute;
+    bottom:8px;
+    left:16px;
+    width:0%;
+    height:2px;
+    background:currentColor;
+    transition:width 0.25s ease;
+  }
+  .btn:hover::after{ width:calc(100% - 32px); }
 
   .pill{
     flex: 0 0 42px;
     height:42px;
-    width:42px;
     border-radius:12px;
     display:grid;
     place-items:center;
@@ -111,11 +103,8 @@
     background:#222;
     border:1px solid var(--border);
   }
-
-  /* Per-brand accents */
-  .spotify  .pill{ background: linear-gradient(135deg, #0f2a1b, var(--accent1)); }
-  .youtube  .pill{ background: linear-gradient(135deg, #2a0f12, var(--accent2)); }
-  .instagram.pill { background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4); } /* not used */
+  .spotify  .pill{ background: linear-gradient(135deg, #0f2a1b, #1DB954); }
+  .youtube  .pill{ background: linear-gradient(135deg, #2a0f12, #ff3951); }
   .instagram .pill{ background: linear-gradient(135deg,#2a1230,#f58529); }
   .tiktok   .pill{ background: linear-gradient(135deg, #0a1820, #00f2ea); }
   .facebook .pill{ background: linear-gradient(135deg, #0b1730, #1877F2); }
@@ -125,27 +114,22 @@
   .label{ font-size:16px; letter-spacing:.2px; }
   .sub{ font-size:12px; opacity:.7; font-weight:600; }
 
-  /* Tiny glow on hover */
-  .btn:hover::after{
-    content:"";
-    position:absolute; inset:-1px;
-    border-radius:inherit;
-    box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 8px 30px rgba(0,0,0,.35);
-    pointer-events:none;
-  }
-
-  /* Footer note */
-  .foot{
-    text-align:center;
-    opacity:.65;
-    font-size:12px;
-    margin-top:14px;
-  }
+  .foot{ text-align:center; opacity:.65; font-size:12px; margin-top:14px; }
 </style>
 </head>
 <body>
   <main class="wrap">
-    <section class="card">
+    <section class="card" style="text-align:center;">
+      <!-- Inline SVG cat logo -->
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="var(--accent3)" stroke-width="4" fill="var(--accent1)" />
+        <path d="M20 24 C20 18, 28 18, 28 24 S20 30, 20 24 Z" fill="var(--accent2)" />
+        <path d="M44 24 C44 18, 36 18, 36 24 S44 30, 44 24 Z" fill="var(--accent2)" />
+        <circle cx="26" cy="30" r="3" fill="white"/>
+        <circle cx="38" cy="30" r="3" fill="white"/>
+        <path d="M26 38 Q32 44 38 38" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+
       <h1 class="logo-word">Little Beast</h1>
       <p class="tag">Heavy-hearted Britpop. Pick your platform:</p>
 
