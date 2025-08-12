@@ -16,6 +16,7 @@
     --border: rgba(255,255,255,0.18);
   }
 
+  /* Base background + animated blobs (GPU-friendly transforms only) */
   body{
     margin:0;
     font-family: system-ui, Arial, sans-serif;
@@ -25,17 +26,21 @@
     display:flex; align-items:center; justify-content:center;
     padding:32px; position:relative; overflow:hidden;
   }
+  /* Blob layers */
   body::before, body::after{
     content:""; position:absolute; inset:-20%;
     background: radial-gradient(40% 40% at 30% 30%, var(--accent1), transparent 60%),
                 radial-gradient(35% 35% at 80% 20%, var(--accent2), transparent 60%),
                 radial-gradient(45% 45% at 60% 80%, var(--accent3), transparent 65%);
     filter: blur(40px) saturate(110%);
-    opacity:.45; animation: floatA 26s ease-in-out infinite alternate;
+    opacity:.45; transform: translate3d(0,0,0) scale(1);
+    will-change: transform;
+    animation: floatA 26s ease-in-out infinite alternate;
   }
   body::after{
     mix-blend-mode: screen;
-    opacity:.28; animation: floatB 34s ease-in-out infinite alternate-reverse;
+    opacity:.28;
+    animation: floatB 34s ease-in-out infinite alternate-reverse;
   }
   @keyframes floatA{
     0%   { transform: translate3d(-2%, -2%, 0) scale(1.05); }
@@ -47,6 +52,7 @@
     50%  { transform: translate3d(-3%, -1%, 0) scale(1.06); }
     100% { transform: translate3d(1%, -2%, 0)  scale(1.00); }
   }
+  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce){
     body::before, body::after{ animation: none; }
   }
@@ -62,16 +68,15 @@
     box-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.05);
   }
 
-  .logo{ max-width:90px; margin-bottom:10px; display:block; margin-left:auto; margin-right:auto; }
+  .logo{ max-width:90px; margin-bottom:10px; }
   .logo-word{
     font-weight:800;
     font-size: clamp(28px, 5vw, 42px);
     background: linear-gradient(90deg, var(--accent3), var(--accent4), var(--accent2));
     -webkit-background-clip: text; background-clip: text; color: transparent;
     margin: 0 0 6px;
-    text-align:center;
   }
-  .tag{ opacity:.85; margin:0 0 20px; font-size:14px; text-align:center; }
+  .tag{ opacity:.85; margin:0 0 20px; font-size:14px; }
 
   .links{ display:grid; grid-template-columns:1fr; gap:12px; }
   @media (min-width:600px){ .links{ grid-template-columns:1fr 1fr; } }
@@ -121,7 +126,7 @@
       </svg>
 
       <h1 class="logo-word">Little Beast</h1>
-      <p class="tag">Alt Rock from Zagreb. Pick your platform:</p>
+      <p class="tag">Heavy-hearted Britpop. Pick your platform:</p>
 
       <div class="links">
         <a class="btn spotify" target="_blank" rel="noopener"
