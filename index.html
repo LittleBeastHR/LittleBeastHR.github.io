@@ -1,141 +1,128 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Little Beast — Official Links</title>
-  <meta name="description" content="Little Beast — Alt Rock from Zagreb. Stream, follow, and sign up." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Little Beast — Official</title>
+<meta name="description" content="Little Beast —Alt rock from Zagreb. Listen & follow." />
+<meta property="og:title" content="Little Beast — Official" />
+<meta property="og:description" content="Heavy-hearted Britpop. New singles out now." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0f1209" />
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-    n.queue=[]; t=b.createElement(e); t.async=!0;
-    t.src=v; s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1066942378877644');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
+<style>
+  :root{
+    --charcoal:#0f1209;  /* background floor */
+    --olive:#1f2413;     /* deep olive */
+    --olive-2:#272b18;   /* sooty olive */
+    --beige:#c6b48a;     /* type/cream */
+    --rust:#b24720;      /* claw red */
+    --ochre:#a57a2b;     /* peel yellow */
+  }
 
-  <style>
-    :root{
-      --bg1: #a8edea; /* light turquoise */
-      --bg2: #fed6e3; /* warm pale peach/pink */
-      --card: #fff8f0; /* sand */
-      --ink:#333333; /* deep charcoal */
-      --muted:#666666;
-      --accent:#ff6f61; /* coral */
-      --accent-hover:#ff9966; /* tangerine */
-      --ring:rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color:var(--ink);
-      display:flex; align-items:center; justify-content:center;
-    }
-    .wrap{
-      width:100%; max-width:760px; padding:28px 18px;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--ring);
-      border-radius:24px;
-      padding:28px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.1);
-    }
-    .header{
-      display:flex; flex-direction:column; align-items:center; gap:10px;
-      margin-bottom:16px; text-align:center;
-    }
-    .logo{
-      width:140px; height:140px; object-fit:contain; display:block;
-      border-radius:16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.15);
-    }
-    h1{
-      font-weight:800; letter-spacing:.4px; margin:0; font-size:clamp(22px, 3vw, 28px);
-    }
-    .tag{ color:var(--muted); font-size:14px; }
-    .links{
-      display:grid; gap:12px; margin-top:18px;
-    }
-    @media (min-width:640px){
-      .links{ grid-template-columns: 1fr 1fr; }
-    }
-    .btn{
-      display:flex; align-items:center; justify-content:center;
-      padding:14px 16px; border-radius:14px; text-decoration:none;
-      color:var(--ink); background:#ffffff;
-      border:1px solid var(--ring);
-      transition: transform .08s ease, background .2s ease, border-color .2s ease, color .2s ease;
-      font-weight:600;
-    }
-    .btn:hover{ 
-      transform: translateY(-1px); 
-      background: var(--accent); 
-      color:#fff; 
-      border-color: var(--accent-hover);
-    }
-    .btn:active{ transform: translateY(0); }
-    footer{
-      text-align:center; color:var(--muted); font-size:12px; margin-top:16px;
-    }
-  </style>
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background: var(--charcoal);
+    color: var(--beige);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    display:flex; align-items:center; justify-content:center;
+    padding:28px;
+  }
+
+  /* Hero background (grungy wall) */
+  .bg{
+    position:fixed; inset:0;
+    background:
+      radial-gradient(1200px 800px at 50% -10%, rgba(0,0,0,.0), rgba(0,0,0,.55)),
+      url('hero.jpg') center/cover no-repeat;
+    filter: saturate(.9) contrast(1.02) brightness(.92);
+    z-index:-1;
+  }
+
+  .wrap{ width:min(780px, 100%); backdrop-filter: none; }
+  .panel{
+    background: rgba(15,18,9,.72); /* translucent charcoal to keep texture visible */
+    border:1px solid rgba(198,180,138,.18);
+    border-radius:16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    padding:22px;
+  }
+
+  header{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:14px; margin-bottom:10px;
+  }
+  .logo{width:min(140px, 35vw); height:auto; filter: drop-shadow(0 3px 20px rgba(0,0,0,.5))}
+  h1{
+    margin:0; font-weight:900; letter-spacing:.12em;
+    font-size: clamp(22px, 5vw, 40px);
+    text-shadow: 0 2px 0 rgba(0,0,0,.25);
+  }
+  p.sub{margin:0; color:rgba(198,180,138,.85); font-size:clamp(13px,2.8vw,15px)}
+
+  .grid{
+    display:grid; grid-template-columns:1fr; gap:10px; margin-top:16px;
+  }
+  a.btn{
+    display:flex; align-items:center; justify-content:center; gap:.6em;
+    text-decoration:none; font-weight:700; letter-spacing:.02em;
+    color:var(--charcoal);
+    background: var(--beige);
+    border:1px solid rgba(198,180,138,.25);
+    padding:14px 16px; border-radius:12px; transition:.18s ease;
+    text-transform: uppercase;
+  }
+  a.btn:hover{ background:var(--rust); color:#fff; transform:translateY(-1px) }
+  a.btn.alt{
+    background: transparent; color:var(--beige);
+    border-color: rgba(198,180,138,.45);
+  }
+  a.btn.alt:hover{ background: rgba(178,71,32,.18); border-color: var(--rust); }
+
+  footer{ margin-top:16px; text-align:center; color:rgba(198,180,138,.7); font-size:12px }
+
+  @media (min-width:740px){
+    .grid{ grid-template-columns:1fr 1fr }
+  }
+</style>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1066942378877644'); fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
 </head>
-<body>
-  <main class="wrap">
-    <section class="card">
-      <header class="header">
-        <img src="logo.png" alt="Little Beast logo" class="logo" />
-        <h1>Little Beast</h1>
-        <div class="tag">Alt Rock from Zagreb</div>
-      </header>
 
-      <div class="links">
-        <a class="btn" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?si=LwmbDfrTTkqDLSMChR0eyw&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">
-          Spotify
-        </a>
-        <a class="btn" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank" rel="noopener">
-          YouTube
-        </a>
-        <a class="btn" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">
-          Instagram
-        </a>
-        <a class="btn" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">
-          SoundCloud
-        </a>
-        <a class="btn" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">
-          Apple Music
-        </a>
-        <a class="btn" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">
-          Facebook
-        </a>
-        <a class="btn" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">
-          TikTok
-        </a>
-        <a class="btn" href="https://preview.mailerlite.io/forms/1731560/162558234440238638/share" target="_blank" rel="noopener">
-          Join Mailing List
-        </a>
-      </div>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <main class="wrap panel">
+    <header>
+      <img src="logo.png" alt="Little Beast logo" class="logo" />
+      <h1>LITTLE&nbsp;BEAST</h1>
+      <p class="sub">Heavy-hearted Britpop • New single “The Longest Time”</p>
+    </header>
+
+    <section class="grid">
+      <a class="btn" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn alt" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn alt" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn alt" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn alt" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn alt" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">SoundCloud</a>
+      <a class="btn alt" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">Apple Music</a>
+      <a class="btn alt" href="mailto:littlebeasthrk@hotmail.com?subject=Little%20Beast%20Booking%20/%20Press&body=Hi%20Little%20Beast..." >Email us</a>
     </section>
 
-    <footer>© <span id="yr"></span> Little Beast. All rights reserved.</footer>
+    <footer>© Little Beast 2025</footer>
   </main>
-
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
