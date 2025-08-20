@@ -3,56 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Little Beast — Follow on Spotify</title>
+  <title>Little Beast — Spotify</title>
 
   <!-- Meta Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1066942378877644');
-    fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1066942378877644'); fbq('track','PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
 
   <style>
     :root { --bg:#0f1209; --fg:#fff; --accent:#1DB954; }
-    html,body { margin:0; padding:0; background:var(--bg); color:var(--fg);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif; }
-    .wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
-    .card { width:100%; max-width:420px; text-align:center; padding:28px 24px;
-      border:1px solid #222; border-radius:18px; background:rgba(255,255,255,0.02); }
-    h1 { font-size:22px; margin:0 0 16px; }
-    .btn { display:block; width:100%; margin-top:16px; padding:14px 16px; border-radius:12px;
-      background:var(--accent); color:#000; text-decoration:none; font-weight:700; font-size:18px; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{width:100%;max-width:420px;text-align:center;padding:28px 24px;
+      border:1px solid #222;border-radius:18px;background:rgba(255,255,255,.02)}
+    h1{font-size:22px;margin:0 0 16px}
+    .btn{display:block;width:100%;margin-top:16px;padding:14px 16px;
+      border-radius:12px;background:var(--accent);color:#000;text-decoration:none;
+      font-weight:700;font-size:18px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
-      <h1>Follow Little Beast on Spotify</h1>
-      <a id="listenBtn" class="btn" href="#">Follow on Spotify</a>
+      <img src="logo.png" alt="Little Beast" style="max-width:160px;margin-bottom:20px;" />
+      <h1>Little Beast on Spotify</h1>
+      <a id="listenBtn" class="btn" href="#">Listen on Spotify</a>
     </div>
   </div>
 
   <script>
     const dest = new URL("https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY");
-    dest.searchParams.set("utm_source", "meta");
-    dest.searchParams.set("utm_medium", "ig_ads");
-    dest.searchParams.set("utm_campaign", "in_follow_only");
+    dest.searchParams.set("utm_source","meta");
+    dest.searchParams.set("utm_medium","ig_ads");
+    dest.searchParams.set("utm_campaign","in_follow_only");
 
-    document.getElementById('listenBtn').addEventListener('click', function (e) {
+    document.getElementById('listenBtn').addEventListener('click', function(e){
       e.preventDefault();
-      if (window.fbq) {
-        fbq('trackCustom', 'SpotifyClick', { geo: 'IN', campaign: 'in_follow_only' });
-      }
-      setTimeout(() => { window.location.href = dest.toString(); }, 180);
+      if (window.fbq) fbq('trackCustom','SpotifyClick',{geo:'IN',campaign:'in_follow_only'});
+      setTimeout(()=>{ window.location.href = dest; }, 180);
     });
   </script>
 </body>
