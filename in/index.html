@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Little Beast — Follow on Spotify</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1066942378877644');    // your pixel ID
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
+  <!-- /Meta Pixel -->
+
+  <style>
+    :root { --bg:#0f1209; --fg:#fff; --accent:#1DB954; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif; }
+    .wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .card { width:100%; max-width:420px; text-align:center; padding:28px 24px; border:1px solid #222; border-radius:18px; background:rgba(255,255,255,0.02); }
+    h1 { font-size:22px; margin:0 0 16px; }
+    .btn { display:block; width:100%; margin-top:16px; padding:14px 16px; border-radius:12px; background:var(--accent); color:#000; text-decoration:none; font-weight:700; }
+    .sub { opacity:.8; font-size:14px; margin-top:8px; }
+    iframe { margin-top:10px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Follow Little Beast on Spotify</h1>
+
+      <!-- Spotify Follow embed -->
+      <iframe
+        src="https://open.spotify.com/follow/1/?uri=spotify:artist:1VtBno35V1m2SDlvNwaWbY&size=detail&theme=dark"
+        width="300" height="56" scrolling="no" frameborder="0"
+        style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+
+      <!-- Trackable button -->
+      <a id="listenBtn" class="btn" href="#">Listen on Spotify</a>
+      <div class="sub">One tap → follow & listen</div>
+    </div>
+  </div>
+
+  <script>
+    // Build a Spotify artist URL with UTM tags for attribution
+    const dest = new URL("https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY");
+    dest.searchParams.set("utm_source", "meta");
+    dest.searchParams.set("utm_medium", "ig_ads");
+    dest.searchParams.set("utm_campaign", "in_follow_only");
+
+    const btn = document.getElementById('listenBtn');
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Fire a custom event so the Pixel logs the click
+      if (window.fbq) {
+        fbq('trackCustom', 'SpotifyClick', {
+          geo: 'IN',
+          campaign: 'in_follow_only'
+        });
+      }
+      // Small delay to ensure event dispatches, then redirect
+      setTimeout(() => { window.location.href = dest.toString(); }, 180);
+    });
+  </script>
+</body>
+</html>
