@@ -26,9 +26,17 @@
     .logo{max-width:160px;margin:0 auto 18px auto;display:block}
     h1{font-size:22px;margin:0 0 8px}
     p{opacity:.75;margin:0 0 16px}
-    .btn{display:block;width:100%;padding:16px 18px;border-radius:14px;
-      background:var(--accent);color:#000;text-decoration:none;
-      font-weight:800;font-size:18px}
+    .btn{
+      display:inline-block;   /* no more full width */
+      padding:14px 28px;
+      border-radius:14px;
+      background:var(--accent);
+      color:#000;
+      text-decoration:none;
+      font-weight:800;
+      font-size:18px;
+      min-width:200px;        /* keeps a nice size */
+    }
   </style>
 </head>
 <body>
