@@ -1,128 +1,107 @@
+<!-- Save this as /in/index.html on your GitHub Pages repo -->
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Little Beast — Official</title>
-<meta name="description" content="Little Beast —Alt rock from Zagreb. Listen & follow." />
-<meta property="og:title" content="Little Beast — Official" />
-<meta property="og:description" content=" Alt rock from Zagreb. Listen & follow." />
-<meta property="og:type" content="website" />
-<meta name="theme-color" content="#0f1209" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Little Beast — Follow on Spotify</title>
 
-<style>
-  :root{
-    --charcoal:#0f1209;  /* background floor */
-    --olive:#1f2413;     /* deep olive */
-    --olive-2:#272b18;   /* sooty olive */
-    --beige:#c6b48a;     /* type/cream */
-    --rust:#b24720;      /* claw red */
-    --ochre:#a57a2b;     /* peel yellow */
-  }
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1066942378877644'); fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    background: var(--charcoal);
-    color: var(--beige);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    display:flex; align-items:center; justify-content:center;
-    padding:28px;
-  }
-
-  /* Hero background (grungy wall) */
-  .bg{
-    position:fixed; inset:0;
-    background:
-      radial-gradient(1200px 800px at 50% -10%, rgba(0,0,0,.0), rgba(0,0,0,.55)),
-      url('hero.jpg') center/cover no-repeat;
-    filter: saturate(.9) contrast(1.02) brightness(.92);
-    z-index:-1;
-  }
-
-  .wrap{ width:min(780px, 100%); backdrop-filter: none; }
-  .panel{
-    background: rgba(15,18,9,.72); /* translucent charcoal to keep texture visible */
-    border:1px solid rgba(198,180,138,.18);
-    border-radius:16px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    padding:22px;
-  }
-
-  header{
-    display:flex; flex-direction:column; align-items:center; text-align:center;
-    gap:14px; margin-bottom:10px;
-  }
-  .logo{width:min(140px, 35vw); height:auto; filter: drop-shadow(0 3px 20px rgba(0,0,0,.5))}
-  h1{
-    margin:0; font-weight:900; letter-spacing:.12em;
-    font-size: clamp(22px, 5vw, 40px);
-    text-shadow: 0 2px 0 rgba(0,0,0,.25);
-  }
-  p.sub{margin:0; color:rgba(198,180,138,.85); font-size:clamp(13px,2.8vw,15px)}
-
-  .grid{
-    display:grid; grid-template-columns:1fr; gap:10px; margin-top:16px;
-  }
-  a.btn{
-    display:flex; align-items:center; justify-content:center; gap:.6em;
-    text-decoration:none; font-weight:700; letter-spacing:.02em;
-    color:var(--charcoal);
-    background: var(--beige);
-    border:1px solid rgba(198,180,138,.25);
-    padding:14px 16px; border-radius:12px; transition:.18s ease;
-    text-transform: uppercase;
-  }
-  a.btn:hover{ background:var(--rust); color:#fff; transform:translateY(-1px) }
-  a.btn.alt{
-    background: transparent; color:var(--beige);
-    border-color: rgba(198,180,138,.45);
-  }
-  a.btn.alt:hover{ background: rgba(178,71,32,.18); border-color: var(--rust); }
-
-  footer{ margin-top:16px; text-align:center; color:rgba(198,180,138,.7); font-size:12px }
-
-  @media (min-width:740px){
-    .grid{ grid-template-columns:1fr 1fr }
-  }
-</style>
-
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1066942378877644'); fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
+  <style>
+    :root{
+      --bg:#0f1209; /* charcoal */
+      --card:rgba(255,255,255,.02);
+      --line:#222;
+      --text:#fff;
+      --accent:#1DB954; /* Spotify green */
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{width:100%;max-width:420px;text-align:center;padding:28px 24px;border:1px solid var(--line);
+      border-radius:18px;background:var(--card)}
+    h1{font-size:22px;margin:0 0 14px}
+    p{opacity:.8;margin:0 0 16px;font-size:15px}
+    .btn{display:block;width:100%;margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--accent);
+      color:#000;text-decoration:none;font-weight:800;font-size:18px}
+    .logo{max-width:160px;margin-bottom:18px}
+    .divider{height:1px;background:#2a2a2a;margin:18px 0}
+    .fine{opacity:.6;font-size:12px;margin-top:10px}
+    iframe{border:none;overflow:hidden}
+  </style>
 </head>
-
 <body>
-  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="card">
+      <!-- Update this path if your logo lives elsewhere -->
+      <img class="logo" src="https://littlebeasthr.github.io/in/logo.png" alt="Little Beast" />
+      <h1>Follow Little Beast on Spotify</h1>
+      <p>One tap. That’s it.</p>
 
-  <main class="wrap panel">
-    <header>
-      <img src="logo.png" alt="Little Beast logo" class="logo" />
-      <h1>LITTLE&nbsp;BEAST</h1>
-      <p class="sub"> Alt rock from Zagreb. Listen & follow.</p>
-    </header>
+      <!-- Official Spotify Follow widget (best way to get a true “Follow” action) -->
+      <div id="followWidget">
+        <iframe
+          src="https://open.spotify.com/follow/1/?uri=spotify:artist:1VtBno35V1m2SDlvNwaWbY&size=detail&theme=dark"
+          width="300" height="56" scrolling="no" frameborder="0"
+          title="Follow Little Beast on Spotify">
+        </iframe>
+      </div>
 
-    <section class="grid">
-      <a class="btn alt" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">Spotify</a>
-      <a class="btn alt" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=YouTube" target="_blank" rel="noopener">YouTube</a>
-      <a class="btn alt" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn alt" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">Facebook</a>
-      <a class="btn alt" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">TikTok</a>
-      <a class="btn alt" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">SoundCloud</a>
-      <a class="btn alt" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">Apple Music</a>
-      <a class="btn alt" href="https://preview.mailerlite.io/forms/1731560/162558234440238638/share">Sign Up Today</a>
-    </section>
+      <div class="divider"></div>
 
-    <footer>© Little Beast 2025</footer>
-  </main>
+      <!-- Fallback: open profile in app/web (we can track this click) -->
+      <a id="openSpotify" class="btn" href="#">Open in Spotify</a>
+
+      <p class="fine">If the Follow button doesn’t show, tap “Open in Spotify” and hit Follow there.</p>
+    </div>
+  </div>
+
+  <script>
+    // Destination with UTM tagging consistent with your India campaign
+    const dest = new URL("https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY");
+    dest.searchParams.set("utm_source","meta");
+    dest.searchParams.set("utm_medium","ig_ads");
+    dest.searchParams.set("utm_campaign","in_follow_only");
+
+    // Track explicit opens
+    document.getElementById('openSpotify').addEventListener('click', function(e){
+      e.preventDefault();
+      if (window.fbq) fbq('trackCustom','SpotifyOpen',{geo:'IN',campaign:'in_follow_only'});
+      setTimeout(()=>{ window.location.href = dest; }, 180);
+    });
+
+    // Optional: small ping if the follow widget is visible (can help with attribution diagnostics)
+    window.addEventListener('load', () => {
+      const w = document.getElementById('followWidget');
+      const seen = !!w && w.offsetHeight > 0;
+      if (seen && window.fbq) fbq('trackCustom','FollowWidgetViewed',{geo:'IN'});
+    });
+  </script>
 </body>
 </html>
+
+<!-- Add this geo-redirect snippet to your MAIN homepage (index.html) so India traffic is routed to /in/ -->
+<!-- Place it just before the closing </body> tag on the root page. -->
+<script>
+(async () => {
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    if (data && data.country_code === 'IN') {
+      if (window.fbq) fbq('trackCustom','GeoRedirect',{to:'/in/'});
+      window.location.replace('/in/');
+    }
+  } catch (e) { /* silently ignore */ }
+})();
+</script>
