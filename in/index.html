@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Little Beast — Spotify</title>
+  <title>Little Beast — Follow on Spotify</title>
 
   <!-- Meta Pixel -->
   <script>
@@ -18,19 +18,39 @@
     src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
 
   <style>
-    :root { --bg:#0f1209; --fg:#fff; --accent:#1DB954; }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .btn{display:inline-block;padding:14px 18px;border-radius:12px;background:var(--accent);color:#000;text-decoration:none;font-weight:700;font-size:18px}
+    :root{--bg:#0f1209;--text:#fff;--accent:#1DB954}
+    html,body{margin:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+    .stack{width:100%;max-width:420px;text-align:center}
+    .logo{max-width:160px;margin:0 auto 18px auto;display:block}
+    h1{font-size:22px;margin:0 0 8px}
+    p{opacity:.75;margin:0 0 16px}
+    .btn{display:block;width:100%;padding:16px 18px;border-radius:14px;
+      background:var(--accent);color:#000;text-decoration:none;
+      font-weight:800;font-size:18px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="btn"
-       href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=meta&utm_medium=ig_ads&utm_campaign=in_follow_only"
-       onclick="if(window.fbq){fbq('trackCustom','SpotifyClick',{geo:'IN',campaign:'in_follow_only'});}">
-       Listen on Spotify
-    </a>
-  </div>
+  <main class="wrap">
+    <div class="stack">
+      <img class="logo" src="https://littlebeasthr.github.io/in/logo.png" alt="Little Beast"/>
+      <h1>Follow Little Beast on Spotify</h1>
+      <p>One tap. That’s it.</p>
+      <a id="cta" class="btn" href="#">Open in Spotify & Follow</a>
+    </div>
+  </main>
+  <script>
+    const destA = new URL('https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY');
+    destA.searchParams.set('utm_source','meta');
+    destA.searchParams.set('utm_medium','ig_ads');
+    destA.searchParams.set('utm_campaign','in_follow_minimal');
+
+    document.getElementById('cta').addEventListener('click',e=>{
+      e.preventDefault();
+      if (window.fbq) fbq('trackCustom','SpotifyOpen',{variant:'A'});
+      setTimeout(()=>location.href=destA,160);
+    });
+  </script>
 </body>
 </html>
