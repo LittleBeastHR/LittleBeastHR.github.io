@@ -3,7 +3,51 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Little Beast — Listen on Spotify</title>
+  <title>Little Beast — Listen Everywhere</title>
+  <meta name="description" content="Croatian alt-rock. Hear Little Beast on all major platforms." />
+  <link rel="canonical" href="https://littlebeasthr.github.io/in/">
+
+  <!-- Social meta -->
+  <meta property="og:title" content="Little Beast — Listen Everywhere">
+  <meta property="og:description" content="Croatian alt-rock. Hear Little Beast on Spotify, YouTube, Apple Music, TikTok and more.">
+  <meta property="og:image" content="./logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    :root {
+      --bg: #f0e6cf;
+      --fg: #111;
+      --sub: #4a4a4a;
+      --spotify: #1db954;
+      --yt: #ff0000;
+      --apple: #000000;
+      --tiktok: #000000;
+    }
+    body {
+      margin:0; background:var(--bg); color:var(--fg);
+      font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      display:grid; place-items:center; min-height:100vh;
+    }
+    .wrap { width:min(600px,92vw); text-align:center; padding:30px; }
+    .logo { width:200px; height:auto; border-radius:16px; margin:0 auto 18px; }
+    h1 { font-size:clamp(24px,5vw,34px); margin:12px 0 6px; }
+    p.tag { color:var(--sub); margin:0 0 22px; }
+
+    .links { display:grid; gap:14px; }
+    .btn {
+      display:block; padding:14px 22px; border-radius:999px;
+      color:#fff; font-weight:700; text-decoration:none;
+      transition:transform .1s ease, box-shadow .15s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
+    }
+    .btn:hover { transform:translateY(-2px) }
+    .spotify { background:var(--spotify); }
+    .youtube { background:var(--yt); }
+    .apple { background:var(--apple); }
+    .tiktok { background:var(--tiktok); }
+
+    footer { margin-top:30px; font-size:13px; color:var(--sub); }
+  </style>
 
   <!-- Meta Pixel -->
   <script>
@@ -11,48 +55,32 @@
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init','1066942378877644'); fbq('track','PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1066942378877644&ev=PageView&noscript=1"/></noscript>
-
-  <style>
-    :root{--bg:#0f1209;--text:#fff;--accent:#1DB954}
-    html,body{margin:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
-    .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
-    .stack{width:100%;max-width:420px;text-align:center}
-    .logo{max-width:160px;margin:0 auto 18px auto;display:block}
-    h1{font-size:22px;margin:0 0 8px}
-    p{opacity:.75;margin:0 0 16px}
-    .btn{
-      display:inline-block;   /* no more full width */
-      padding:14px 28px;
-      border-radius:14px;
-      background:var(--accent);
-      color:#000;
-      text-decoration:none;
-      font-weight:800;
-      font-size:18px;
-      min-width:200px;        /* keeps a nice size */
-    }
-  </style>
+  <noscript><img alt="" height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?ev=PageView&id=1066942378877644&noscript=1"/></noscript>
 </head>
 <body>
   <main class="wrap">
-    <div class="stack">
-      <img class="logo" src="https://littlebeasthr.github.io/in/logo.png" alt="Little Beast"/>
-      <h1>Listen to Little Beast on Spotify</h1>
-      <p>Croatian Alt Rock</p>
-      <a id="cta" class="btn" href="#">Listen on Spotify</a>
+    <img class="logo" src="./logo.png" alt="Little Beast logo">
+    <h1>Listen to Little Beast</h1>
+    <p class="tag">New singles out now — choose your platform</p>
+
+    <div class="links">
+      <a class="btn spotify" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?nd=1&utm_source=meta&utm_medium=cpc&utm_campaign=in-landing&utm_content=spotify" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn youtube" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn apple" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=meta&utm_medium=cpc&utm_campaign=in-landing&utm_content=apple" target="_blank" rel="noopener">Apple Music</a>
+      <a class="btn tiktok" href="https://www.tiktok.com/@littlebeasthr" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn" style="background:#ff6600" href="https://soundcloud.com/littlebeasthr" target="_blank" rel="noopener">SoundCloud</a>
+      <a class="btn" style="background:#1877f2" href="https://www.facebook.com/profile.php?id=61576025953041" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn" style="background:#333" href="https://linktr.ee/littlebeasthr" target="_blank" rel="noopener">More Links</a>
     </div>
+
+    <footer>© Little Beast</footer>
   </main>
-  <script>
-    const destA = new URL('https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY');
-    destA.searchParams.set('utm_source','meta');
-    destA.searchParams.set('utm_medium','ig_ads');
-    destA.searchParams.set('utm_campaign','in_follow_minimal');
+</body>
+</html>
 
     document.getElementById('cta').addEventListener('click',e=>{
       e.preventDefault();
