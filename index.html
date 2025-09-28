@@ -13,41 +13,43 @@
 
   <style>
     :root{
-      --charcoal:#0f1209;  /* background floor */
-      --olive:#1f2413;     /* deep olive */
-      --olive-2:#272b18;   /* sooty olive */
-      --beige:#c6b48a;     /* type/cream */
-      --rust:#b24720;      /* claw red */
-      --ochre:#a57a2b;     /* peel yellow */
+      --cream:#f2e9dc;
+      --black:#0c0c0c;
+      --spotify:#1db954;
+      --youtube:#ff0000;
+      --apple:#aaaaaa;
+      --tiktok:#000000;
+      --soundcloud:#ff7700;
+      --facebook:#1877f2;
+      --instagram:#e1306c;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      background: var(--charcoal);
-      color: var(--beige);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       display:flex; align-items:center; justify-content:center;
       padding:28px;
+      color:var(--cream);
     }
 
-    /* Hero background (grungy wall) */
+    /* Poster-wall background */
     .bg{
       position:fixed; inset:0;
       background:
-        radial-gradient(1200px 800px at 50% -10%, rgba(0,0,0,.0), rgba(0,0,0,.55)),
-        url('hero.jpg') center/cover no-repeat;
-      filter: saturate(.9) contrast(1.02) brightness(.92);
+        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+        url('posterwall.jpg') center/cover no-repeat;
+      filter: contrast(1.05) brightness(.95) saturate(1.1);
       z-index:-1;
     }
 
-    .wrap{ width:min(780px, 100%); backdrop-filter: none; }
+    .wrap{ width:min(780px, 100%); }
     .panel{
-      background: rgba(15,18,9,.72); /* translucent charcoal to keep texture visible */
-      border:1px solid rgba(198,180,138,.18);
+      background: rgba(12,12,12,.72);
+      border:1px solid rgba(242,233,220,.18);
       border-radius:16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
       padding:22px;
     }
 
@@ -55,34 +57,36 @@
       display:flex; flex-direction:column; align-items:center; text-align:center;
       gap:14px; margin-bottom:10px;
     }
-    .logo{width:min(140px, 35vw); height:auto; filter: drop-shadow(0 3px 20px rgba(0,0,0,.5))}
+    .logo{width:min(140px, 35vw); height:auto; filter: drop-shadow(0 3px 20px rgba(0,0,0,.7))}
     h1{
       margin:0; font-weight:900; letter-spacing:.12em;
       font-size: clamp(22px, 5vw, 40px);
-      text-shadow: 0 2px 0 rgba(0,0,0,.25);
+      text-shadow: 0 2px 0 rgba(0,0,0,.4);
     }
-    p.sub{margin:0; color:rgba(198,180,138,.85); font-size:clamp(13px,2.8vw,15px)}
+    p.sub{margin:0; color:rgba(242,233,220,.85); font-size:clamp(13px,2.8vw,15px)}
 
     .grid{
-      display:grid; grid-template-columns:1fr; gap:10px; margin-top:16px;
+      display:grid; grid-template-columns:1fr; gap:12px; margin-top:18px;
     }
     a.btn{
-      display:flex; align-items:center; justify-content:center; gap:.6em;
+      display:flex; align-items:center; justify-content:center;
       text-decoration:none; font-weight:700; letter-spacing:.02em;
-      color:var(--charcoal);
-      background: var(--beige);
-      border:1px solid rgba(198,180,138,.25);
       padding:14px 16px; border-radius:12px; transition:.18s ease;
-      text-transform: uppercase;
+      text-transform: uppercase; color:#fff;
     }
-    a.btn:hover{ background:var(--rust); color:#fff; transform:translateY(-1px) }
-    a.btn.alt{
-      background: transparent; color:var(--beige);
-      border-color: rgba(198,180,138,.45);
-    }
-    a.btn.alt:hover{ background: rgba(178,71,32,.18); border-color: var(--rust); }
+    a.btn:hover{transform:translateY(-2px) scale(1.02); filter:brightness(1.15)}
 
-    footer{ margin-top:16px; text-align:center; color:rgba(198,180,138,.7); font-size:12px }
+    /* Brand button colours */
+    a.spotify{background:var(--spotify)}
+    a.youtube{background:var(--youtube)}
+    a.instagram{background:var(--instagram)}
+    a.facebook{background:var(--facebook)}
+    a.tiktok{background:var(--tiktok)}
+    a.soundcloud{background:var(--soundcloud)}
+    a.apple{background:var(--apple); color:#000}
+    a.signup{background:var(--cream); color:#000}
+
+    footer{ margin-top:16px; text-align:center; color:rgba(242,233,220,.7); font-size:12px }
 
     @media (min-width:740px){
       .grid{ grid-template-columns:1fr 1fr }
@@ -113,15 +117,14 @@
     </header>
 
     <section class="grid">
-      <a class="btn alt" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">Spotify</a>
-      <a class="btn alt" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?sub_confirmation=1&utm_source=instagram&utm_medium=ad&utm_campaign=whateverisclever
-" target="_blank" rel="noopener">YouTube</a>
-      <a class="btn alt" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn alt" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">Facebook</a>
-      <a class="btn alt" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">TikTok</a>
-      <a class="btn alt" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">SoundCloud</a>
-      <a class="btn alt" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">Apple Music</a>
-      <a class="btn alt" href="https://preview.mailerlite.io/forms/1731560/162558234440238638/share">Sign Up Today</a>
+      <a class="btn spotify" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn youtube" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?sub_confirmation=1&utm_source=instagram&utm_medium=ad&utm_campaign=whateverisclever" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn instagram" href="https://www.instagram.com/littlebeasthr/?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Instagram" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn facebook" href="https://www.facebook.com/profile.php?id=61576025953041&utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Facebook" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn tiktok" href="https://www.tiktok.com/@littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=TikTok" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn soundcloud" href="https://soundcloud.com/littlebeasthr?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=SoundCloud" target="_blank" rel="noopener">SoundCloud</a>
+      <a class="btn apple" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener">Apple Music</a>
+      <a class="btn signup" href="https://preview.mailerlite.io/forms/1731560/162558234440238638/share">Sign Up Today</a>
     </section>
 
     <footer>© Little Beast 2025</footer>
