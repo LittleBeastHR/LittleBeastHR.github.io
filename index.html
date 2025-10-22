@@ -134,6 +134,14 @@
 
     <footer>© Little Beast 2025</footer>
   </main>
+  <script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.btn.spotify').forEach(el=>{
+    el.addEventListener('click',()=>{ if (window.fbq) fbq('trackCustom','Click_Spotify'); });
+  });
+});
+</script>
+
 </body>
 </html>
 
