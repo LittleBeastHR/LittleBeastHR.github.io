@@ -17,12 +17,7 @@
       --black:#0c0c0c;
       --spotify:#1db954;
       --youtube:#ff0000;
-      --apple:#aaaaaa;
-      --tiktok:#000000;
-      --soundcloud:#ff7700;
-      --facebook:#1877f2;
-      --instagram:#e1306c;
-      --playlist:#e6b800;
+      --neutral:#2b2b2b;
     }
 
     *{box-sizing:border-box}
@@ -68,6 +63,7 @@
     .grid{
       display:grid; grid-template-columns:1fr; gap:12px; margin-top:18px;
     }
+
     a.btn{
       display:flex; align-items:center; justify-content:center;
       text-decoration:none; font-weight:700; letter-spacing:.02em;
@@ -76,38 +72,35 @@
     }
     a.btn:hover{transform:translateY(-2px) scale(1.02); filter:brightness(1.15)}
 
-    /* Slightly smaller + dimmed for secondary buttons */
-    a.btn.instagram,
-    a.btn.tiktok,
-    a.btn.apple,
-    a.btn.facebook,
-    a.btn.soundcloud,
-    a.btn.signup,
-    a.btn.playlist {
-      opacity: 0.75;
-      padding: 12px 14px;
-      font-size: 0.92em;
-      transition: opacity 0.2s ease, transform 0.18s ease;
-    }
-    a.btn.instagram:hover,
-    a.btn.tiktok:hover,
-    a.btn.apple:hover,
-    a.btn.facebook:hover,
-    a.btn.soundcloud:hover,
-    a.btn.signup:hover,
-    a.btn.playlist:hover {
-      opacity: 1;
-    }
-
+    /* Spotify and YouTube stay full emphasis */
     a.spotify{background:var(--spotify)}
     a.youtube{background:var(--youtube)}
-    a.instagram{background:var(--instagram)}
-    a.facebook{background:var(--facebook)}
-    a.tiktok{background:var(--tiktok)}
-    a.soundcloud{background:var(--soundcloud)}
-    a.apple{background:var(--apple); color:#000}
-    a.signup{background:var(--cream); color:#000}
-    a.playlist{background:var(--playlist); color:#000; font-weight:800}
+
+    /* Secondary buttons - smaller, uniform grey */
+    a.instagram,
+    a.tiktok,
+    a.apple,
+    a.facebook,
+    a.soundcloud,
+    a.signup,
+    a.playlist {
+      background: var(--neutral);
+      color: var(--cream);
+      font-size: 0.8em;
+      padding: 8px 10px;
+      opacity: 0.9;
+      transition: opacity 0.2s ease, transform 0.18s ease, filter 0.18s ease;
+    }
+    a.instagram:hover,
+    a.tiktok:hover,
+    a.apple:hover,
+    a.facebook:hover,
+    a.soundcloud:hover,
+    a.signup:hover,
+    a.playlist:hover {
+      opacity: 1;
+      filter: brightness(1.2);
+    }
 
     footer{ margin-top:16px; text-align:center; color:rgba(242,233,220,.7); font-size:12px }
 
@@ -118,6 +111,7 @@
     }
   </style>
 
+  <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
