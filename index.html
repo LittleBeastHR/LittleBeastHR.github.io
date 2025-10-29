@@ -10,67 +10,172 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/hero.jpg" />
   <meta name="theme-color" content="#0f1209" />
+
+  <!-- Lightweight, system fonts for speed -->
   <style>
     :root {
-      --charcoal:#0f1209;
-      --olive:#1f2413;
-      --beige:#c6b48a;
-      --cream:#f2e9dc;
-      --spotify:#1db954;
-      --youtube:#ff0000;
+      --charcoal:#0f1209;  /* background */
+      --olive:#1f2413;     /* deep olive */
+      --beige:#c6b48a;     /* accent */
+      --cream:#f2e9dc;     /* light bg */
+      --spotify:#1db954;   /* Spotify brand */
+      --youtube:#ff0000;   /* YouTube brand */
+      --apple:#aaaaaa;
+      --deezer:#0b76ff;
+      --soundcloud:#ff5500;
+      --tiktok:#000000;
       --link:#c6b48a;
     }
-    html, body {height:100%;margin:0;}
-    body {background:var(--charcoal);color:#fff;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;display:flex;align-items:center;justify-content:center;}
-    .wrap {width:100%;max-width:720px;padding:24px;text-align:center;}
-    .logo {width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 6px 24px rgba(0,0,0,.35);}
-    h1 {font-size:clamp(28px,4vw,40px);margin:16px 0 4px;}
-    .sub {font-size:16px;opacity:.85;margin-bottom:20px;}
-    .btn {display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 18px;border-radius:14px;font-weight:700;text-decoration:none;color:#0d0d0d;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.35);margin:10px;}
-    .btn.spotify {background:var(--spotify);color:#0b0b0b;}
-    .btn.youtube {background:var(--youtube);color:#fff;}
-    .more {margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;}
-    .mini {padding:10px 12px;border-radius:12px;background:var(--olive);color:#fff;text-decoration:none;font-weight:650;box-shadow:0 6px 18px rgba(0,0,0,.35);}
-    footer {margin-top:24px;opacity:.65;font-size:13px;}
-    footer a {color:var(--link);text-decoration:none;}
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--charcoal); color: #fff;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wrap { width: 100%; max-width: 720px; padding: 24px; }
+    header { text-align: center; }
+    .logo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: inline-block; box-shadow: 0 6px 24px rgba(0,0,0,.35); }
+    h1 { font-size: clamp(28px, 4vw, 40px); margin: 16px 0 4px; letter-spacing: .2px; }
+    .sub { font-size: 16px; opacity: .85; margin-bottom: 20px; }
+
+    /* Hero image (optional). Use a highly compressed JPG */
+    .hero { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 36px rgba(0,0,0,.45); }
+    .hero img { width: 100%; height: auto; display: block; }
+
+    /* Primary CTAs */
+    .cta { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 18px 0 8px; }
+    @media (min-width: 560px) { .cta { grid-template-columns: 1fr 1fr; } }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 18px; border-radius: 14px; font-weight: 700; text-decoration: none;
+      color: #0d0d0d; background: #fff; outline: none; border: 0; transition: transform .06s ease, filter .2s ease; 
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-spotify { background: var(--spotify); color: #0b0b0b; }
+    .btn-youtube { background: var(--youtube); color: #fff; }
+
+    .btn .note { font-weight: 600; opacity: .85; font-size: 13px; }
+
+    /* Secondary links */
+    .more { margin: 16px 0 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (min-width: 560px) { .more { grid-template-columns: repeat(4, 1fr); } }
+    .mini {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 12px; border-radius: 12px; background: var(--olive); color: #fff; text-decoration: none; font-weight: 650;
+      border: 1px solid rgba(255,255,255,.06); font-size: 14px; box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    }
+
+    .trust { display: flex; align-items: center; justify-content: center; gap: 12px; opacity: .8; font-size: 14px; margin-top: 12px; }
+    .trust span { white-space: nowrap; }
+
+    footer { margin-top: 24px; text-align: center; opacity: .65; font-size: 13px; }
+    footer a { color: var(--link); text-decoration: none; }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .mini { transition: none; }
+    }
   </style>
+
+  <!-- Meta Pixel (base PageView). Custom events fire on button clicks below. -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '762201612914008');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=762201612914008&ev=PageView&noscript=1"/></noscript>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=762201612914008&ev=PageView&noscript=1" /></noscript>
 </head>
 <body>
   <main class="wrap">
-    <img class="logo" src="/logo.jpg" alt="Little Beast logo" />
-    <h1>Two of Us — Out Now</h1>
-    <p class="sub">Alt-rock from Zagreb. Choose where to listen:</p>
+    <header>
+      <!-- Optional: replace src with your cat logo asset or remove the <img> entirely -->
+      <img class="logo" src="/logo.jpg" alt="Little Beast logo" />
+      <h1>Two of Us — Out Now</h1>
+      <p class="sub">Alt-rock from Zagreb. Choose where to listen:</p>
+    </header>
 
-    <a class="btn spotify"
-       href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify"
-       target="_blank" rel="noopener"
-       onclick="new Image().src='https://www.facebook.com/tr?id=762201612914008&ev=Click_Spotify&noscript=1';">
-       Spotify
-    </a>
+    <!-- Optional hero artwork: use a compressed 1600px JPG to keep LCP fast -->
+    <div class="hero" aria-hidden="true">
+      <img src="/hero.jpg" alt="" loading="lazy" />
+    </div>
 
-    <a class="btn youtube"
-       href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?sub_confirmation=1&utm_source=instagram&utm_medium=ad&utm_campaign=whateverisclever"
-       target="_blank" rel="noopener"
-       onclick="fbq('trackCustom','Click_Youtube');">
-       YouTube
-    </a>
+    <!-- Primary CTAs (big, above the fold) -->
+    <section class="cta" aria-label="Primary listening options">
+      <!-- Replace the hrefs with your real links -->
+      <a class="btn btn-spotify" id="cta-spotify" href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify" data-platform="Spotify">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 0a12 12 0 1012 12A12.014 12.014 0 0012 0zm5.485 17.318a.75.75 0 01-1.034.248c-2.83-1.73-6.396-2.124-10.58-1.167a.75.75 0 11-.33-1.463c4.539-1.026 8.457-.577 11.555 1.315a.75.75 0 01.389 1.067zM17.8 14.2a.9.9 0 01-1.24.3c-2.535-1.555-6.4-2.012-9.39-1.105a.9.9 0 11-.51-1.728c3.45-1.02 7.77-.508 10.7 1.28a.9.9 0 01.44 1.253zM18.1 11a1.05 1.05 0 01-1.45.35c-2.28-1.39-5.77-1.7-8.47-.93a1.05 1.05 0 11-.58-2.02c3.2-.93 7.13-.57 9.87 1.07A1.05 1.05 0 0118.1 11z"/></svg>
+        Listen on Spotify
+        <span class="note">PLAY NOW</span>
+      </a>
 
-    <div class="more">
-      <a class="mini" href="https://music.apple.com/artist/1813606835" target="_blank">Apple</a>
-      <a class="mini" href="https://www.deezer.com/en/artist/351220592" target="_blank">Deezer</a>
-      <a class="mini" href="https://soundcloud.com/littlebeasthr" target="_blank">SoundCloud</a>
-      <a class="mini" href="https://www.tiktok.com/@littlebeasthr" target="_blank">TikTok</a>
+      <a class="btn btn-youtube" id="cta-youtube" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?sub_confirmation=1&utm_source=instagram&utm_medium=ad&utm_campaign=whateverisclever" data-platform="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M23.5 6.2a3 3 0 00-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 00.5 6.2 31.2 31.2 0 000 12a31.2 31.2 0 00.5 5.8 3 3 0 002.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 002.1-2.1A31.2 31.2 0 0024 12a31.2 31.2 0 00-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        Watch on YouTube
+        <span class="note">OFFICIAL VIDEO</span>
+      </a>
+    </section>
+
+    <!-- Secondary options (smaller buttons) -->
+    <section class="more" aria-label="More platforms">
+      <a class="mini" href="https://music.apple.com/artist/1813606835" data-platform="Apple Music">Apple</a>
+      <a class="mini" href="https://www.deezer.com/en/artist/351220592" data-platform="Deezer">Deezer</a>
+      <a class="mini" href="https://soundcloud.com/littlebeasthr" data-platform="SoundCloud">SoundCloud</a>
+      <a class="mini" href="https://www.tiktok.com/@littlebeasthr" data-platform="TikTok">TikTok</a>
+    </section>
+
+    <!-- Micro trust signals (optional; keep subtle) -->
+    <div class="trust" aria-label="Social proof">
+      <span>Featured on Reality Check Radio</span>
+      <span>•</span>
+      <span>1,000+ Spotify streams</span>
     </div>
 
     <footer>
-      <div>© Little Beast · <a href="https://instagram.com/littlebeasthr" target="_blank">Instagram</a> · <a href="https://linktr.ee/littlebeasthr" target="_blank">More Links</a></div>
+      <div>© Little Beast. <a href="https://instagram.com/littlebeasthr" target="_blank" rel="noopener">Instagram</a> · <a href="https://linktr.ee/littlebeasthr" target="_blank" rel="noopener">More links</a></div>
     </footer>
   </main>
+
+  <script>
+    // 1) Append UTM params from the current URL to all outbound music links.
+    (function propagateUTM(){
+      try {
+        var q = window.location.search; if(!q) return; // nothing to do
+        document.querySelectorAll('a[href^="http"]').forEach(function(a){
+          try{
+            var url = new URL(a.href);
+            var page = new URL(window.location.href);
+            // Copy all params from page to link unless they already exist
+            page.searchParams.forEach(function(v, k){ if(!url.searchParams.has(k)) url.searchParams.set(k, v); });
+            a.href = url.toString();
+          }catch(e){}
+        });
+      } catch(e){}
+    })();
+
+    // 2) Fire lightweight custom events on clicks (safe even if Meta blocks).
+    function trackCustom(name, data){
+      if (typeof fbq === 'function') fbq('trackCustom', name, data || {});
+    }
+
+    document.getElementById('cta-spotify')?.addEventListener('click', function(){
+      trackCustom('Click_Spotify', { content_name: 'Two of Us' });
+    });
+    document.getElementById('cta-youtube')?.addEventListener('click', function(){
+      trackCustom('Click_YouTube', { content_name: 'Two of Us' });
+    });
+
+    document.querySelectorAll('.mini').forEach(function(el){
+      el.addEventListener('click', function(ev){
+        var p = ev.currentTarget.getAttribute('data-platform') || 'Other';
+        trackCustom('Click_OtherPlatform', { platform: p, content_name: 'Two of Us' });
+      });
+    });
+  </script>
 </body>
 </html>
