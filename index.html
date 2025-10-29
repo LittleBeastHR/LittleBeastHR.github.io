@@ -69,13 +69,17 @@
     .grid{
       display:grid; grid-template-columns:1fr; gap:12px; margin-top:18px;
     }
-    a.btn{
+    a.btn{ /* base button */
       display:flex; align-items:center; justify-content:center;
       text-decoration:none; font-weight:700; letter-spacing:.02em;
       padding:14px 16px; border-radius:12px; transition:.18s ease;
       text-transform: uppercase; color:#fff;
     }
     a.btn:hover{transform:translateY(-2px) scale(1.02); filter:brightness(1.15)}
+
+    /* Uniformly mute all buttons except Spotify */
+    a.btn:not(.spotify){ opacity:.75; padding:12px 14px; font-size:.92em; }
+    a.btn:not(.spotify):hover{ opacity:1; }
 
     /* Brand button colours */
     a.spotify{background:var(--spotify)}
