@@ -138,7 +138,7 @@
   <a class="btn spotify"
    href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify"
    target="_blank" rel="noopener"
-   onclick="new Image().src='https://www.facebook.com/tr?id=762201612914008&ev=Click_Spotify&noscript=1';">
+   onclick="try{fbq('trackCustom','Click_Spotify');}catch(e){};(new Image()).src='https://www.facebook.com/tr?id=762201612914008&ev=Click_Spotify&noscript=1';">
    NEW SINGLE — LISTEN NOW ON SPOTIFY
 </a>
   <a class="btn youtube" href="https://www.youtube.com/channel/UC_po-b5X498l848ceR4arGg?sub_confirmation=1&utm_source=instagram&utm_medium=ad&utm_campaign=whateverisclever" target="_blank" rel="noopener" onclick="fbq('trackCustom','Click_Youtube');">NEW SINGLE — WATCH NOW ON YOUTUBE</a>
@@ -157,7 +157,7 @@
  <script>
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.btn.spotify').forEach(el=>{
-    el.addEventListener('mousedown',()=>{ if (window.fbq) fbq('trackCustom','Click_Spotify'); });
+    el.addEventListener('click',()=>{ if (window.fbq) fbq('trackCustom','Click_Spotify'); });
   });
 });
 </script>
