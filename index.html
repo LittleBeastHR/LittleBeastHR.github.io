@@ -10,7 +10,7 @@
   <meta property="og:description" content=" Alt rock from Zagreb. Listen & follow." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0f1209" />
-
+ 
   <style>
     :root{
       --cream:#f2e9dc;
@@ -19,7 +19,7 @@
       --youtube:#ff0000;
       --neutral:#2b2b2b;
     }
-
+ 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -29,7 +29,7 @@
       padding:28px;
       color:var(--cream);
     }
-
+ 
     .bg{
       position:fixed; inset:0;
       background:
@@ -38,19 +38,22 @@
       filter: contrast(1.05) brightness(.95) saturate(1.1);
       z-index:-1;
     }
-
-    .wrap{ width:min(780px, 100%); }
+ 
+    .wrap{ width:min(780px, 100%); position:relative; z-index:1; }
     .panel{
       background: rgba(12,12,12,.72);
       border:1px solid rgba(242,233,220,.18);
       border-radius:16px;
       box-shadow: 0 20px 60px rgba(0,0,0,.6);
       padding:22px;
+      position:relative;
+      z-index:1;
     }
-
+ 
     header{
       display:flex; flex-direction:column; align-items:center; text-align:center;
       gap:14px; margin-bottom:10px;
+      position:relative; z-index:5;
     }
     .logo{width:min(140px, 35vw); height:auto; filter: drop-shadow(0 3px 20px rgba(0,0,0,.7))}
     h1{
@@ -59,11 +62,11 @@
       text-shadow: 0 2px 0 rgba(0,0,0,.4);
     }
     p.sub{margin:0; color:rgba(242,233,220,.85); font-size:clamp(13px,2.8vw,15px)}
-
+ 
     .grid{
       display:grid; grid-template-columns:1fr; gap:12px; margin-top:18px;
     }
-
+ 
     a.btn{
       display:flex; align-items:center; justify-content:center;
       text-decoration:none; font-weight:700; letter-spacing:.02em;
@@ -71,11 +74,11 @@
       text-transform: uppercase; color:#fff;
     }
     a.btn:hover{transform:translateY(-2px) scale(1.02); filter:brightness(1.15)}
-
+ 
     /* Spotify and YouTube stay full emphasis */
     a.spotify{background:var(--spotify)}
     a.youtube{background:var(--youtube)}
-
+ 
     /* Secondary buttons - smaller, uniform grey */
     a.instagram,
     a.tiktok,
@@ -99,19 +102,22 @@
       opacity: 1;
       filter: brightness(1.2);
     }
-
+ 
     footer{ margin-top:16px; text-align:center; color:rgba(242,233,220,.7); font-size:12px }
-
+ 
     @media (min-width:740px){
       .grid{ grid-template-columns:1fr 1fr }
       a.spotify, a.youtube { grid-column: 1 / -1; }
     }
-
+ 
     /* Sign-up form section - sits on its own, full width, styled to match the dark panel */
     .signup-block{
       margin-top:22px;
       padding-top:18px;
       border-top:1px solid rgba(242,233,220,.18);
+      position:relative;
+      z-index:0;
+      isolation:isolate;
     }
     .signup-block .hs-form-frame{
       background: rgba(242,233,220,.95);
@@ -124,8 +130,14 @@
       color:#ffffff;
       text-align:center;
     }
+    .signup-block p.signup-note{
+      color:rgba(242,233,220,.6);
+      text-align:right;
+      font-size:11px;
+      margin-top:6px;
+    }
   </style>
-
+ 
   <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -138,17 +150,17 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=762201612914008&ev=PageView&noscript=1"/></noscript>
 </head>
-
+ 
 <body>
   <div class="bg" aria-hidden="true"></div>
-
+ 
   <main class="wrap panel">
     <header>
       <img src="logo.png" alt="Little Beast logo" class="logo" />
       <h1>LITTLE&nbsp;BEAST</h1>
       <p class="sub"> Alt rock from Zagreb. Listen & follow.</p>
     </header>
-
+ 
     <section class="grid">
       <a class="btn spotify"
        href="https://open.spotify.com/artist/1VtBno35V1m2SDlvNwaWbY?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=Spotify"
@@ -164,16 +176,17 @@
       <a class="btn apple" href="https://music.apple.com/gb/artist/little-beast/1813606835?utm_source=lb_hub&utm_medium=bio&utm_campaign=2025_q3&utm_content=AppleMusic" target="_blank" rel="noopener" onclick="fbq('trackCustom','Click_Apple');">Apple Music</a>
       <a class="btn playlist" href="https://open.spotify.com/playlist/3uOGXqWF17mBceAn99ulPh?si=2f65a468155e4528" target="_blank" rel="noopener" onclick="fbq('trackCustom','Click_Playlist');">Listen to our favourites playlist</a>
     </section>
-
+ 
     <section class="signup-block">
       <h2 class="signup-heading">Welcome To The Zoo!</h2>
       <p class="signup-sub">It's all happening at the zoo. Exclusive songs, acoustic events, and behind the scenes footage. Join our community and get priority treatment!</p>
       <div class="hs-form-frame" data-region="eu1" data-form-id="f3647c25-c1e2-4f97-a264-63421de82bf6" data-portal-id="148755529"></div>
+      <p class="signup-note">* required field</p>
     </section>
-
+ 
     <footer>© Little Beast 2025</footer>
   </main>
-
+ 
  <script>
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.btn.spotify').forEach(el=>{
